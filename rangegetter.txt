@@ -13,12 +13,12 @@ Dim j As Integer
 Dim k As Integer
 Dim v As Integer
 
-For r = 2 To 10
+For r = 2 To Range("I2").End(xlDown).Row
 nextticker = Range("I" & r).Value
 
 
 j = 2
-Do Until j = Range("A1").End(xlDown).Row
+Do Until j = Range("A2").End(xlDown).Row
 yearopen = Range("C" & j).Value
 If nextticker = Range("A" & j).Value Then Exit Do
 j = j + 1
@@ -36,7 +36,7 @@ yearclose = Range("F" & (k - 1)).Value
 
 v = j
 yearvolume = 0
-Do Until v = (k - 1)
+Do Until v = k
 yearvolume = yearvolume + Range("G" & v).Value
 v = v + 1
 Loop
@@ -53,3 +53,5 @@ Range("L" & r).Value = yearvolume
 Next r
 
 End Sub
+
+

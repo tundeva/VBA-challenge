@@ -20,15 +20,12 @@ If Range("K" & i).Value > maxPercInc Then
 maxPercInc = Range("K" & i).Value
 maxtickername = Range("I" & i).Value
 
-Range("O" & 3).Value = maxtickername
-Range("P" & 3).Value = maxPercInc
-
-i = i + 1
-
 End If
 
 Next i
 
+Range("O" & 3).Value = maxtickername
+Range("P" & 3).Value = maxPercInc
 
 
 
@@ -46,14 +43,17 @@ If Range("K" & j).Value < maxPercDec Then
 maxPercDec = Range("K" & j).Value
 mintickername = Range("I" & j).Value
 
-Range("O" & 4).Value = mintickername
-Range("P" & 4).Value = maxPercDec
 
-j = j + 1
 
 End If
 
 Next j
+
+MsgBox (mintickername)
+
+Range("O" & 4).Value = mintickername
+Range("P" & 4).Value = maxPercDec
+
 
 
 
@@ -70,16 +70,14 @@ If Range("L" & n).Value > maxvolincrease Then
 maxvolincrease = Range("L" & n).Value
 maxvolumeticker = Range("I" & n).Value
 
-Range("O" & 5).Value = maxvolumeticker
-Range("P" & 5).Value = maxvolincrease
-
-n = n + 1
 
 End If
 
 Next n
 
 
+Range("O" & 5).Value = maxvolumeticker
+Range("P" & 5).Value = maxvolincrease
 
 
 
