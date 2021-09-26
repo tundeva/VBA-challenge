@@ -1,0 +1,87 @@
+Sub maxgetters():
+
+Dim maxtickername As String
+Dim mintickername As String
+Dim maxPercInc As Double
+Dim maxPercDec As Double
+Dim maxVolume As Double
+
+Dim maxvolumeticker As String
+Dim maxvolincrease As Double
+
+Dim i As Integer
+
+maxPercInc = Range("K" & 2).Value
+
+For i = 2 To Range("K2").End(xlDown).Row
+
+If Range("K" & i).Value > maxPercInc Then
+
+maxPercInc = Range("K" & i).Value
+maxtickername = Range("I" & i).Value
+
+Range("O" & 3).Value = maxtickername
+Range("P" & 3).Value = maxPercInc
+
+i = i + 1
+
+End If
+
+Next i
+
+
+
+
+
+
+
+Dim j As Integer
+
+maxPercDec = Range("K" & 2).Value
+
+For j = 2 To Range("K2").End(xlDown).Row
+
+If Range("K" & j).Value < maxPercDec Then
+
+maxPercDec = Range("K" & j).Value
+mintickername = Range("I" & j).Value
+
+Range("O" & 4).Value = mintickername
+Range("P" & 4).Value = maxPercDec
+
+j = j + 1
+
+End If
+
+Next j
+
+
+
+
+
+Dim n As Integer
+
+maxvolincrease = Range("L" & 2).Value
+
+For n = 2 To Range("L2").End(xlDown).Row
+
+If Range("L" & n).Value > maxvolincrease Then
+
+maxvolincrease = Range("L" & n).Value
+maxvolumeticker = Range("I" & n).Value
+
+Range("O" & 5).Value = maxvolumeticker
+Range("P" & 5).Value = maxvolincrease
+
+n = n + 1
+
+End If
+
+Next n
+
+
+
+
+
+
+End Sub

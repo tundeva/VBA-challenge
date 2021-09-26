@@ -1,0 +1,23 @@
+Sub tickerextractor():
+
+Dim ticker As String
+Dim i As Long
+Dim k As Integer
+
+k = 1
+
+For i = 1 To Range("A2").End(xlDown).Row
+
+If Range("A" & i).Value <> ticker Then
+
+ticker = Range("A" & i).Value
+
+Range("I" & k).Value = ticker
+
+k = k + 1
+
+End If
+
+Next i
+
+End Sub

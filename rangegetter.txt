@@ -1,0 +1,55 @@
+Sub Rangegetter():
+
+Dim nextticker As String
+Dim yearrange As Double
+Dim yearopen As Double
+Dim yearclose As Double
+Dim yearvolume As Double
+Dim rangeperc As Double
+
+
+Dim r As Integer
+Dim j As Integer
+Dim k As Integer
+Dim v As Integer
+
+For r = 2 To 10
+nextticker = Range("I" & r).Value
+
+
+j = 2
+Do Until j = Range("A1").End(xlDown).Row
+yearopen = Range("C" & j).Value
+If nextticker = Range("A" & j).Value Then Exit Do
+j = j + 1
+Loop
+
+
+k = j
+Do Until k = Range("A1").End(xlDown).Row
+If nextticker <> Range("A" & k).Value Then Exit Do
+k = k + 1
+Loop
+yearclose = Range("F" & (k - 1)).Value
+
+
+
+v = j
+yearvolume = 0
+Do Until v = (k - 1)
+yearvolume = yearvolume + Range("G" & v).Value
+v = v + 1
+Loop
+
+
+yearrange = yearclose - yearopen
+rangeperc = Round(100 * ((yearclose - yearopen) / yearopen), 2)
+
+Range("J" & r).Value = yearrange
+Range("K" & r).Value = rangeperc
+Range("L" & r).Value = yearvolume
+
+
+Next r
+
+End Sub
